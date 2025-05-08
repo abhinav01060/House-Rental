@@ -11,13 +11,13 @@ export default function Contact() {
         message: ''
     });
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         // Handle form submission here
         console.log('Form submitted:', formData);
     };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({
             ...prev,
