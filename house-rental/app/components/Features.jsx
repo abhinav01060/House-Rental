@@ -1,3 +1,5 @@
+import AnimateOnScroll from './AnimateOnScroll';
+
 export default function Features() {
     const features = [
         {
@@ -49,15 +51,15 @@ export default function Features() {
     return (
         <section className="py-24">
             <div className="container mx-auto px-4">
-                <div className="section-header">
+                <AnimateOnScroll animation="fade-up" className="section-header">
                     <div className="section-tag">Our Benefits</div>
                     <h2>Why Choose <span className="text-[var(--accent-color)]">HomeHaven</span>?</h2>
                     <p className="mt-4">We make the rental process simple and efficient for both tenants and property owners.</p>
-                </div>
+                </AnimateOnScroll>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
                     {features.map((feature, index) => (
-                        <div key={index} className="bg-white rounded-2xl shadow-lg p-8 relative overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-gray-100">
+                        <AnimateOnScroll key={index} animation="fade-up" delay={index * 150} className="bg-white rounded-2xl shadow-lg p-8 relative overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-gray-100">
                             {/* Decorative gradient corner */}
                             <div className={`absolute -top-10 -right-10 w-20 h-20 rounded-full bg-gradient-to-br ${getGradient(feature.color)} opacity-20 group-hover:scale-150 transition-transform duration-500`}></div>
                             
@@ -74,7 +76,7 @@ export default function Features() {
                                     <i className="fas fa-arrow-right"></i>
                                 </div>
                             </div>
-                        </div>
+                        </AnimateOnScroll>
                     ))}
                 </div>
             </div>

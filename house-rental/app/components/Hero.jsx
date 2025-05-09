@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import AnimateOnScroll from './AnimateOnScroll';
 
 export default function Hero() {
   const router = useRouter();
@@ -43,14 +44,18 @@ export default function Hero() {
     >
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center text-white">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">
-            Find Your <span className="text-[var(--accent-color)]">Perfect</span> Home
-          </h1>
-          <p className="text-xl md:text-2xl mb-10 opacity-90 drop-shadow-md">
-            The easiest way to find rental properties and connect with property owners in real time.
-          </p>
+          <AnimateOnScroll animation="fade-down" duration={1000} className="mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight drop-shadow-lg">
+              Find Your <span className="text-[var(--accent-color)]">Perfect</span> Home
+            </h1>
+          </AnimateOnScroll>
+          <AnimateOnScroll animation="fade-up" delay={300} duration={1000} className="mb-10">
+            <p className="text-xl md:text-2xl opacity-90 drop-shadow-md">
+              The easiest way to find rental properties and connect with property owners in real time.
+            </p>
+          </AnimateOnScroll>
           
-          <div className="bg-white rounded-xl p-4 shadow-2xl">
+          <AnimateOnScroll animation="fade-up" delay={600} duration={1000} className="bg-white rounded-xl p-4 shadow-2xl">
             <form onSubmit={handleSearch} className="flex flex-col gap-4">
               <div className="search-input relative">
                 <i className="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
@@ -115,9 +120,9 @@ export default function Hero() {
                 {isSearching ? 'Searching...' : 'Search Now'}
               </button>
             </form>
-          </div>
+          </AnimateOnScroll>
           
-          <div className="quick-stats grid grid-cols-3 gap-6 mt-12 bg-black bg-opacity-30 p-6 rounded-xl backdrop-blur-sm">
+          <AnimateOnScroll animation="fade-up" delay={900} duration={1000} className="quick-stats grid grid-cols-3 gap-6 mt-12 bg-black bg-opacity-30 p-6 rounded-xl backdrop-blur-sm">
             <div className="stat text-center">
               <span className="stat-number block text-3xl md:text-4xl font-bold text-white">10,000+</span>
               <span className="stat-label text-gray-200 text-sm md:text-base">Properties</span>
@@ -130,7 +135,7 @@ export default function Hero() {
               <span className="stat-number block text-3xl md:text-4xl font-bold text-white">2,000+</span>
               <span className="stat-label text-gray-200 text-sm md:text-base">Property Owners</span>
             </div>
-          </div>
+          </AnimateOnScroll>
         </div>
       </div>
     </section>

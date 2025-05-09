@@ -1,3 +1,5 @@
+import AnimateOnScroll from './AnimateOnScroll';
+
 export default function HowItWorks() {
   const steps = [
     {
@@ -26,15 +28,15 @@ export default function HowItWorks() {
       <div className="absolute inset-0 bg-[url('/images/pattern-dots.svg')] bg-repeat opacity-5"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="section-header">
+        <AnimateOnScroll animation="fade-up" className="section-header">
           <div className="section-tag">Simple Process</div>
           <h2>How It <span className="text-[var(--accent-color)]">Works</span></h2>
           <p>Three simple steps to find your next home or tenant</p>
-        </div>
+        </AnimateOnScroll>
         
         <div className="flex flex-col md:flex-row justify-center gap-8 mt-12">
           {steps.map((step) => (
-            <div key={step.id} className="bg-white rounded-2xl shadow-lg p-8 md:w-1/3 relative group hover:-translate-y-2 transition-all duration-300">
+            <AnimateOnScroll key={step.id} animation="fade-up" delay={step.id * 200} className="bg-white rounded-2xl shadow-lg p-8 md:w-1/3 relative group hover:-translate-y-2 transition-all duration-300">
               <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-[var(--primary-color)] text-white flex items-center justify-center font-bold text-xl">
                 {step.id}
               </div>
@@ -47,7 +49,7 @@ export default function HowItWorks() {
                 <h3 className="text-xl font-semibold mb-4 text-gray-900">{step.title}</h3>
                 <p className="text-gray-600">{step.description}</p>
               </div>
-            </div>
+            </AnimateOnScroll>
           ))}
         </div>
       </div>
